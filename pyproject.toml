@@ -1,6 +1,6 @@
 [project]
 name = "seqattn"
-version = "0.0.1"
+version = "0.0.2"
 description = "A convenient lib for sequence-level attention abstraction, powered by flashinfer"
 readme = "README.md"
 authors = [
