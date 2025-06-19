@@ -45,6 +45,43 @@ Data structure containing all tensors required by flashinfer:
 pip install seqattn
 ```
 
+### FlashInfer Installation
+
+**Important**: FlashInfer has complex distribution requirements and is not included as a direct dependency due to:
+
+1. **PyTorch/CUDA Version Compatibility**: FlashInfer requires specific PyTorch and CUDA version combinations
+2. **Multiple Installation Channels**: Different installation methods for different environments
+3. **Hardware Requirements**: Only supports specific GPU architectures (`sm75`, `sm80`, `sm86`, `sm89`, `sm90`)
+
+For more information, I strongly encourage you to check the [installation page](https://docs.flashinfer.ai/installation.html) of flashinfer.
+
+Please install FlashInfer separately according to your environment:
+
+**Option 1 - Prebuilt wheels (Recommended):**
+```bash
+# For PyTorch 2.6 + CUDA 12.6
+pip install flashinfer-python -i https://flashinfer.ai/whl/cu126/torch2.6/
+
+# For other combinations, see: https://docs.flashinfer.ai/installation.html
+```
+
+**Option 2 - JIT version from PyPI:**
+```bash
+pip install flashinfer-python
+```
+
+**Option 3 - From source:**
+```bash
+git clone https://github.com/flashinfer-ai/flashinfer.git --recursive
+cd flashinfer
+pip install --no-build-isolation --verbose .
+```
+
+Check your PyTorch CUDA version with:
+```bash
+python -c "import torch; print(torch.version.cuda)"
+```
+
 ## Quick Start
 
 ```python
@@ -121,7 +158,7 @@ head_id = head_gen.get_head_id(seq_id=1, head_idx=5)
 - torch
 - numpy
 - attrs
-- flashinfer
+- flashinfer (install separately)
 
 ## License
 

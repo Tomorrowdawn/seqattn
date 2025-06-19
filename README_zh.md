@@ -45,6 +45,43 @@ seqattn 为 flashinfer 的分页注意力功能提供了一个最小但功能强
 pip install seqattn
 ```
 
+### FlashInfer 安装
+
+**重要说明**：FlashInfer 由于复杂的分发要求而未作为直接依赖包含，主要原因包括：
+
+1. **PyTorch/CUDA 版本兼容性**：FlashInfer 需要特定的 PyTorch 和 CUDA 版本组合
+2. **多种安装渠道**：不同环境需要不同的安装方法
+3. **硬件要求**：仅支持特定的 GPU 架构（`sm75`, `sm80`, `sm86`, `sm89`, `sm90`）
+
+强烈建议您查阅flashinfer的[安装指引](https://docs.flashinfer.ai/installation.html).
+
+请根据您的环境单独安装 FlashInfer：
+
+**选项 1 - 预构建 wheels（推荐）：**
+```bash
+# 适用于 PyTorch 2.6 + CUDA 12.6
+pip install flashinfer-python -i https://flashinfer.ai/whl/cu126/torch2.6/
+
+# 其他组合请参考：https://docs.flashinfer.ai/installation.html
+```
+
+**选项 2 - 从 PyPI 安装 JIT 版本：**
+```bash
+pip install flashinfer-python
+```
+
+**选项 3 - 从源码安装：**
+```bash
+git clone https://github.com/flashinfer-ai/flashinfer.git --recursive
+cd flashinfer
+pip install --no-build-isolation --verbose .
+```
+
+检查您的 PyTorch CUDA 版本：
+```bash
+python -c "import torch; print(torch.version.cuda)"
+```
+
 ## 快速开始
 
 ```python
