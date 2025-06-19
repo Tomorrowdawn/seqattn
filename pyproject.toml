@@ -1,0 +1,25 @@
+[project]
+name = "seqattn"
+version = "0.0.1"
+description = "A convenient lib for sequence-level attention abstraction, powered by flashinfer"
+readme = "README.md"
+authors = [
+    { name = "Tomorrowdawn", email = "tomorrowdawn@foxmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "torch",
+    "numpy",
+    "attrs",
+    "flashinfer",
+]
+license = "MIT"
+keywords = ["attention", "llm", "inference", "kv-cache"]
+
+[project.urls]
+Homepage = "https://github.com/Tomorrowdawn/seqattn"
+Repository = "https://github.com/Tomorrowdawn/seqattn"
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
